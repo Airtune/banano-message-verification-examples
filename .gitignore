@@ -1,0 +1,4 @@
+
+verify_message/node_modules/
+.*
+!.gitignore
