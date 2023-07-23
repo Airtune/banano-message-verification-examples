@@ -196,7 +196,7 @@ Copy the setup below into the configuration file. This setup does three things:
 </VirtualHost>
 ```
 
-Press `ctrl+x`` and save the file.
+Press `ctrl+x` and save the file.
 
 Enable your site:
 
