@@ -14,8 +14,8 @@ const thebananostandCorsOptions = {
 };
 
 // Receive signed message from wallet signing page.
-// Here's an example for a link to a sign request page:
-// https://thebananostand.com/signmessage#message=hello&url=https://example.com/api/validate_banano_message
+// Example: https://thebananostand.com/sign-message#message=hello&url=https://example.com/api/validate_banano_message
+// To configure CORS from any origin simply use cors()
 app.options('/api/validate_banano_message', cors(thebananostandCorsOptions)); // pre-flight to enable PUT CORS
 app.put('/api/validate_banano_message', cors(thebananostandCorsOptions), (req, res) => {
   const banano_address = req.body.banano_address;
@@ -23,10 +23,10 @@ app.put('/api/validate_banano_message', cors(thebananostandCorsOptions), (req, r
   const signature = req.body.signature;
   // TODO: Check that banano_address, message, and signature is present.
 
-  let messageIsValid;
+  let messageSignatureIsValid;
   try {
     const publicKey = bananojs.BananoUtil.getAccountPublicKey(banano_address);
-    messageIsValid = bananojs.verifyMessage(publicKey, message, signature);
+    messageSignatureIsValid = bananojs.verifyMessage(publicKey, message, signature);
   } catch(error) {
     // TODO: Log error for inspection here.
     return res.json({
@@ -35,12 +35,14 @@ app.put('/api/validate_banano_message', cors(thebananostandCorsOptions), (req, r
     });
   }
 
-  if (messageIsValid) {
+  if (messageSignatureIsValid) {
+    // Validate and handle the message; do what you must server-side.
     res.json({
       success: true,
       message: 'Success! The message signature was validated by the server.'
     });
   } else {
+    // The signature isn't valid so don't bother handling the message.
     res.json({
       success: false,
       message: 'Failure! The signature could not be verified for the message.'

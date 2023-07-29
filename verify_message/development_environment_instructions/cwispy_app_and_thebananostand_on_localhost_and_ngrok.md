@@ -13,5 +13,5 @@ app server: https://cwispy.app/api/validate_banano_message_any_cors
     This will open up a an ngrok URL for you similar to this:
     `https://9cf5-your-url-here-70.ngrok-free.app`
 3) Sign a message from your ngrok URL. Replace the ngrok url with your own ngrok URL:
-https://9cf5-your-url-here-70.ngrok-free.app/signmessage#message=Hello%20cwispy.app!%0ASession:%20674362467463743%0ATime:%202023-01-01T20:30:01Z&url=https://cwispy.app/api/validate_banano_message_any_cors
+https://9cf5-your-url-here-70.ngrok-free.app/sign-message#message=Hello%20cwispy.app!%0ASession:%20674362467463743%0ATime:%202023-01-01T20:30:01Z&url=https://cwispy.app/api/validate_banano_message_any_cors
 

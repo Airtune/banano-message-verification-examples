@@ -11,11 +11,25 @@ PUT /api/validate_banano_message
 
 To generate a link to request a signature that will be submitted to `https://example.com/api/validate_banano_message`, you can use this code snippet:
 ```
-const submitToUrl = 'https://example.com/api/validate_banano_message'
-const message = "Title: Hello, Banano!\nAction: Zapu zapu\nTime: 2023-01-01 20:30Z"
+const submitToUrl = "https://example.com/api/validate_banano_message";
+const message = "Title: Hello, Banano!\nAction: Zapu zapu\nTime: 2023-01-01 20:30Z";
 
-const signRequestLink = `https://thebananostand.com/signmessage#message=${encodeURIComponent(message)}&url=${encodeURIComponent(submitToUrl)}`;
+const signRequestLink = `https://thebananostand.com/sign-message#message=${encodeURIComponent(message)}&url=${encodeURIComponent(submitToUrl)}`;
 ```
+
+You can also request a signature from a Banano address:
+
+```
+const submitToUrl = "https://example.com/api/validate_banano_message";
+const message = "Title: Hello, Banano!\nAction: Zapu zapu\nTime: 2023-01-01 20:30Z";
+const address = "ban_3boost5r4bosii4c3ad6yubf5npmkgm5rb7kecyzmnu337p9bta8kgikb1a4";
+
+const signRequestLink = `https://thebananostand.com/sign-message#message=${encodeURIComponent(message)}&url=${encodeURIComponent(submitToUrl)}&address=${encodeURIComponent(address)}`;
+```
+
+This will automatically select the address in the user interface but the user can switch to another address to sign from.
+
+If you need a signature from a specific address, include the address in the message and validate that the signing address and address in the message matches.
 
 # Setup
 
