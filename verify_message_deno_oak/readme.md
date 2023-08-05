@@ -1,6 +1,6 @@
 # Example server: Verify message
 
-This is a basic Express/Node.js server that exposes a single endpoint to https://thebananostand.com clients:
+This is a basic Deno/Oak server that exposes a single endpoint to https://thebananostand.com clients:
 
 ```
 OPTIONS /api/validate_banano_message
@@ -39,27 +39,19 @@ Clone the repository and change into the directory:
 
 ```
 git clone https://github.com/Airtune/banano-message-verification-examples.git
-cd ./banano-message-verification-examples/verify_message
-```
-
-Install dependencies:
-
-```
-npm install
+cd ./banano-message-verification-examples/verify_message_deno_oak
 ```
 
 ## 2) Start the server
 
 ```
-npm start
+deno run --allow-net main.js
 ```
 
-After starting the server you should see the following:
-```
-> verify_message@1.0.0 start
-> node index.js
+### 2.5) Start server with pm2
 
-HTTP Server running on port 5420
+```
+pm2 start main.js --interpreter="deno" --interpreter-args="run --allow-net" --name="deno_verify_message_api"
 ```
 
 ## 3) Configure Reverse Proxy with NGINX or Apache2

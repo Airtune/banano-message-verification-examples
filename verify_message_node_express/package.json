@@ -1,5 +1,5 @@
 {
-  "name": "verify_message",
+  "name": "verify_message_express",
   "version": "1.0.0",
   "description": "Express server that verifies a message from https://thebananostand.com",
   "main": "index.js",
