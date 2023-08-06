@@ -62,7 +62,7 @@ After starting the server you should see the following:
 HTTP Server running on port 5420
 ```
 
-### 2.5) Start server with pm2
+### 2.5) Alternatively start server with pm2 as a background task
 
 ```
 pm2 start npm --name "node_verify_message_api" -- start
