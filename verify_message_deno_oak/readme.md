@@ -48,7 +48,7 @@ cd ./banano-message-verification-examples/verify_message_deno_oak
 deno run --allow-net main.js
 ```
 
-### 2.5) Start server with pm2
+### 2.5) Alternatively start server with pm2 as a background task
 
 ```
 pm2 start main.js --interpreter="deno" --interpreter-args="run --allow-net" --name="deno_verify_message_api"
